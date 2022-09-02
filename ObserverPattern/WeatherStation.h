@@ -1,12 +1,21 @@
-#ifndef OBSERVERPATTERN_H
-#define OBSERVERPATTERN_H
+#ifndef WEATHERSTATION_H
+#define WEATHERSTATION_H
 
-#include "ObserverPattern_global.h"
+#include <vector>
 
-class OBSERVERPATTERN_EXPORT ObserverPattern
+#include "Sensor.h"
+
+class WeatherStation
 {
 public:
-    ObserverPattern();
+    WeatherStation();
+
+private:
+    std::vector<Sensor*> vec_sensors_  ;
+
+    void addSensor(Sensor* sensor)     ;
+    bool removeSensor(Sensor* sensor)  ;
+
 };
 
-#endif // OBSERVERPATTERN_H
+#endif // WEATHERSTATION_H

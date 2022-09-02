@@ -3,11 +3,11 @@
 
 #include "WeatherData.h"
 
-class TempretureSensor : public WeatherData
+class TempretureSensor : public Sensor
 {
 public:
     TempretureSensor();
-    void getSensorData() override;
+    double getSensorData() override;
 };
 
 #endif // TEMPRETURESENSOR_H
