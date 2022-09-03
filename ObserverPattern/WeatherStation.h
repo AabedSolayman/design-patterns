@@ -14,7 +14,7 @@ public:
     ~WeatherStation();
     void addSensor(Sensor* sensor)     ;
     bool removeSensor(Sensor* sensor)  ;
-    void getSensorsMeasurements()      ;
+    void updateSensorsMeasurements()   ;
 
 private:
     std::vector<Sensor*>      vec_sensors_           ;

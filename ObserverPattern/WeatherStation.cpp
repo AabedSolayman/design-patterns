@@ -45,7 +45,7 @@ bool WeatherStation::removeSensor(Sensor * sensor)
     return is_removed;
 }
 
-void WeatherStation::getSensorsMeasurements()
+void WeatherStation::updateSensorsMeasurements()
 {
     double measurement = 0.0;
     SensorType type;
