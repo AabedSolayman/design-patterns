@@ -6,26 +6,34 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(IncludeFile
+set(IncludeFiles
     WeatherStation.h
     ISubject.h
     WeatherData.h
-    TempretureSensor.h
     IObserver.h
-    IDisplay.h
-    CurrentConditionDisplay.h
-    Sensor.h
-    MeasurementsData.h)
+    Displays/IDisplay.h
+    Displays/CurrentConditionDisplay.h
+    Sensors/Sensor.h
+    Sensors/TempretureSensor.h
+    )
 
 set(Sources
     WeatherStation.cpp
     WeatherData.cpp
-    TempretureSensor.cpp
-    CurrentConditionDisplay.cpp
-    WeatherStationApp.cpp
+    Sensors/TempretureSensor.cpp
+    Displays/CurrentConditionDisplay.cpp
     )
 
 add_library(WeatherStation SHARED ${Sources})
 
 target_compile_definitions(WeatherStation PRIVATE OBSERVERPATTERN_LIBRARY)
-add_executable(WeatherStationApp WeatherStation ${Sources} ${IncludeFile})
+
+
+set(ApplicationSources
+    Application/WeatherStationApp.cpp)
+
+add_executable( WeatherStationApp
+                WeatherStation
+                ${ApplicationSources}
+                ${Sources}
+                ${IncludeFiles})

@@ -4,7 +4,7 @@
 #include <map>
 
 #include "ISubject.h"
-#include "Sensor.h"
+#include "Sensors/Sensor.h"
 
 
 class WeatherData : public ISubject

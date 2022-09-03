@@ -1,6 +1,6 @@
 #include "WeatherData.h"
 #include "WeatherStation.h"
-#include "CurrentConditionDisplay.h"
+#include "Displays/CurrentConditionDisplay.h"
 
 #include <algorithm>
 

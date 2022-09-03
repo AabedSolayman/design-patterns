@@ -4,9 +4,10 @@
 #include <vector>
 #include <map>
 
-#include "Sensor.h"
+#include "Sensors/Sensor.h"
+#include "Displays/CurrentConditionDisplay.h"
 #include "WeatherData.h"
-#include "CurrentConditionDisplay.h"
+
 class WeatherStation
 {
 public:

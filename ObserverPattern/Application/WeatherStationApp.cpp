@@ -1,6 +1,6 @@
 #include "WeatherStation.h"
-#include "TempretureSensor.h"
-#include "CurrentConditionDisplay.h"
+#include "Sensors/TempretureSensor.h"
+#include "Displays/CurrentConditionDisplay.h"
 
 int main()
 {

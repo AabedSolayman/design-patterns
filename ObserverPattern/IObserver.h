@@ -2,7 +2,7 @@
 #define IOBSERVER_H
 
 #include <map>
-#include "Sensor.h"
+#include "Sensors/Sensor.h"
 
 class IObserver
 {
