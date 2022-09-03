@@ -6,8 +6,14 @@
 class TempretureSensor : public Sensor
 {
 public:
-    TempretureSensor();
-    double getSensorData() override;
+    TempretureSensor()  ;
+    virtual ~TempretureSensor() ;
+
+    double sensor_data_ = 0.0;
+
+    double     getSensorData() override ;
+    SensorType getSensorType() override ;
+
 };
 
 #endif // TEMPRETURESENSOR_H

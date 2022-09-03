@@ -12,15 +12,17 @@ class WeatherData : public ISubject
 
 public:
     WeatherData();
+    virtual ~WeatherData();
 
     void registerObserver   (IObserver* observer) override;
     void removeObserver     (IObserver* observer) override;
     void notifyObservers    ()                    override;
 
     void measurementesChanged() ;
-    std::map<SensorType, double> getMeasurements()      ;
-    void setMeasurements(std::pair<SensorType, double> measurement)      ;
-    void setMeasurements(std::map <SensorType, double> measurement)      ;
+
+    void setMeasurements(SensorType type, double measurement)           ;
+    void setMeasurements(std::map <SensorType, double> measurements)    ;
+    std::map<SensorType, double> getMeasurements()                      ;
 
 
 protected:

@@ -7,7 +7,7 @@
 class IObserver
 {
 public:
-    IObserver();
+    IObserver(){};
     virtual void update(std::map<SensorType,double> sensors_data) = 0;
 };
 

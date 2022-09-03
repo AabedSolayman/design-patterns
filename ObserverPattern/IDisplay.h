@@ -5,7 +5,7 @@
 class IDisplay
 {
 public:
-    IDisplay();
+    IDisplay(){};
     virtual void display() = 0;
 };
 

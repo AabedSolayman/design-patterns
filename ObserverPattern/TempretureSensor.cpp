@@ -2,11 +2,19 @@
 
 TempretureSensor::TempretureSensor()
 {
+}
 
+TempretureSensor::~TempretureSensor()
+{
 }
 
 double TempretureSensor::getSensorData()
 {
     // get data real sensor
-    return 1.0;
+    return 10.0;
+}
+
+SensorType TempretureSensor::getSensorType()
+{
+    return SensorType::TEMPERATURE;
 }

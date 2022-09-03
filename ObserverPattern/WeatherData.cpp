@@ -1,11 +1,14 @@
 #include "WeatherData.h"
 #include <algorithm>
+#include <iostream>
 
 WeatherData::WeatherData()
 {
 
 }
-
+WeatherData::~WeatherData()
+{
+}
 void WeatherData::registerObserver(IObserver* observer)
 {
     vec_observers_.push_back(observer);
@@ -17,7 +20,6 @@ void WeatherData::removeObserver(IObserver *observer)
                                                      vec_observers_.end(),
                                                      observer);
 
-    vec_observers_.erase(it);
     if (it != vec_observers_.end())
         vec_observers_.erase(it);
 
@@ -36,16 +38,21 @@ void WeatherData::measurementesChanged()
     notifyObservers();
 }
 
-void WeatherData::setMeasurements(std::map<SensorType,double> measurement)
+void WeatherData::setMeasurements(std::map<SensorType,double> measurements)
 {
-    this->measurements_ = measurement;
+    this->measurements_ = measurements;
     measurementesChanged();
 }
 
 
-void WeatherData::setMeasurements(std::pair<SensorType,double> measurement)
+void WeatherData::setMeasurements(SensorType type, double measurement)
 {
-    this->measurements_.at(measurement.first) = measurement.second;
+    std::map<SensorType,double>::iterator it = this->measurements_.find(type);
+    if(it != this->measurements_.end())
+        this->measurements_.at(type) = measurement;
+    else
+        this->measurements_.insert(std::pair<SensorType,double>(type, measurement));
+
     measurementesChanged();
 }
 
