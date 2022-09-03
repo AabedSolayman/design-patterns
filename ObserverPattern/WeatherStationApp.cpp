@@ -9,7 +9,7 @@ int main()
     TempretureSensor* temp_sensor = new TempretureSensor();
     weather_staiton->addSensor(temp_sensor);
 
-    weather_staiton->getSensorsMeasurements();
+    weather_staiton->updateSensorsMeasurements();
 
     delete weather_staiton;
 
