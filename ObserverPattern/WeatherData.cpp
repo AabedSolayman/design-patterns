@@ -8,6 +8,7 @@ WeatherData::WeatherData()
 }
 WeatherData::~WeatherData()
 {
+    vec_observers_.clear();
 }
 void WeatherData::registerObserver(IObserver* observer)
 {
@@ -38,14 +39,14 @@ void WeatherData::measurementesChanged()
     notifyObservers();
 }
 
-void WeatherData::setMeasurements(std::map<SensorType,double> measurements)
+void WeatherData::setMeasurements(std::map<SensorType,double> &measurements)
 {
     this->measurements_ = measurements;
     measurementesChanged();
 }
 
 
-void WeatherData::setMeasurements(SensorType type, double measurement)
+void WeatherData::setMeasurements(SensorType type, double &measurement)
 {
     std::map<SensorType,double>::iterator it = this->measurements_.find(type);
     if(it != this->measurements_.end())

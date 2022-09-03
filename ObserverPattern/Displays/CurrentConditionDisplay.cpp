@@ -19,8 +19,9 @@ void CurrentConditionDisplay::update(std::map<SensorType,double> measurements)
 
 void CurrentConditionDisplay::display()
 {
-
     std::map<SensorType,double>::iterator it;
+
+    std::cout << ":::::"<< getDisplayName() << ":::::"<<std::endl;
 
     for (it = measurements_.begin(); it != measurements_.end(); it++)
     {
@@ -30,4 +31,6 @@ void CurrentConditionDisplay::display()
                   << it->second
                   << std::endl;
     }
+    std::cout << ":::::"<< getDisplayName() << ":::::\n"<<std::endl;
+
 }

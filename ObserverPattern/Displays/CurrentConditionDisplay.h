@@ -15,6 +15,7 @@ public:
 
     void update(std::map<SensorType,double> measurements)   override    ;
     void display()                                          override    ;
+    std::string getDisplayName()override {return "CurrentConditionDisplay";}
 
 private:
     ISubject* weather_data_;

@@ -20,8 +20,8 @@ public:
 
     void measurementesChanged() ;
 
-    void setMeasurements(SensorType type, double measurement)           ;
-    void setMeasurements(std::map <SensorType, double> measurements)    ;
+    void setMeasurements(SensorType type, double &measurement)          ;
+    void setMeasurements(std::map <SensorType, double>& measurements)   ;
     std::map<SensorType, double> getMeasurements()                      ;
 
 

@@ -11,7 +11,8 @@ TempretureSensor::~TempretureSensor()
 double TempretureSensor::getSensorData()
 {
     // get data real sensor
-    return 10.0;
+    sensor_data_ = 10.0;
+    return sensor_data_;
 }
 
 SensorType TempretureSensor::getSensorType()

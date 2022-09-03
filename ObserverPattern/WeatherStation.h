@@ -6,6 +6,7 @@
 
 #include "Sensors/Sensor.h"
 #include "Displays/CurrentConditionDisplay.h"
+#include "Displays/HeatIndexDisplay.h"
 #include "WeatherData.h"
 
 class WeatherStation
@@ -19,8 +20,9 @@ public:
 
 private:
     std::vector<Sensor*>      vec_sensors_           ;
-    WeatherData*              weather_data_          ;
+    WeatherData             * weather_data_          ;
     CurrentConditionDisplay * current_condition_gui_ ;
+    HeatIndexDisplay        * head_index_gui_        ;
 
 
 };

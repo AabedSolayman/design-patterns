@@ -13,8 +13,10 @@ set(IncludeFiles
     IObserver.h
     Displays/IDisplay.h
     Displays/CurrentConditionDisplay.h
+    Displays/HeatIndexDisplay.h
     Sensors/Sensor.h
     Sensors/TempretureSensor.h
+    Sensors/HumiditySensor.h
     )
 
 set(Sources
@@ -22,6 +24,8 @@ set(Sources
     WeatherData.cpp
     Sensors/TempretureSensor.cpp
     Displays/CurrentConditionDisplay.cpp
+    Displays/HeatIndexDisplay.cpp
+    Sensors/HumiditySensor.cpp
     )
 
 add_library(WeatherStation SHARED ${Sources})

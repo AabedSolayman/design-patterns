@@ -1,8 +1,10 @@
+#include <algorithm>
+
 #include "WeatherData.h"
 #include "WeatherStation.h"
 #include "Displays/CurrentConditionDisplay.h"
+#include "Displays/HeatIndexDisplay.h"
 
-#include <algorithm>
 
 WeatherStation::WeatherStation()
 {
@@ -11,7 +13,10 @@ WeatherStation::WeatherStation()
     current_condition_gui_ =
                     new CurrentConditionDisplay(weather_data_);
 
+    head_index_gui_ =
+                    new HeatIndexDisplay(weather_data_);
 }
+
 WeatherStation::~WeatherStation()
 {
     for(ulong i = 0; i <vec_sensors_.size(); i++)
@@ -48,11 +53,18 @@ bool WeatherStation::removeSensor(Sensor * sensor)
 void WeatherStation::updateSensorsMeasurements()
 {
     double measurement = 0.0;
-    SensorType type;
+    std::map<SensorType, double>  sensors_measurements;
+    std::pair<SensorType, double> single_sensors_measurement;
+
     for(ulong i = 0; i <vec_sensors_.size(); i++)
     {
-        measurement = vec_sensors_.at(i)->getSensorData();
-        type        = vec_sensors_.at(i)->getSensorType();
-        weather_data_->setMeasurements(type, measurement);
+        single_sensors_measurement.first= vec_sensors_.at(i)->getSensorType();
+        single_sensors_measurement.second= vec_sensors_.at(i)->getSensorData();
+
+        sensors_measurements.insert(single_sensors_measurement);
     }
+    weather_data_->setMeasurements(sensors_measurements);
+
 }
+
+
