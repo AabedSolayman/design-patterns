@@ -38,7 +38,15 @@ void Pizza::box()
               <<std::endl;
 }
 
+void Pizza::setName(std::string name){name_ = name;}
+
+void Pizza::setDough(std::string dough){dough_ = dough;}
+
+void Pizza::setSauce(std::string sauce){sauce_ = sauce;}
+
+void Pizza::addToppings(std::string topping){toppings_.push_back(topping); }
+
 std::string Pizza::getName()
 {
-    return name;
+    return name_;
 }

@@ -7,11 +7,19 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(PizzaStore SHARED
-  PizzaStore_global.hpp
-  PizzaStore.cpp
-  PizzaStore.hpp
-  Pizza.cpp
-  Pizza.hpp
+  pizzas/Pizza.cpp
+  pizzas/Pizza.hpp
+  pizzas/ChicagoStyleCheesePizza.cpp
+  pizzas/ChicagoStyleCheesePizza.hpp
+  pizzas/NYStyleCheesePizza.cpp
+  pizzas/NYStyleCheesePizza.hpp
+  stores/PizzaStore.cpp
+  stores/PizzaStore.hpp
+  stores/NYPizzaStore.cpp
+  stores/NYPizzaStore.hpp
+  stores/ChicagoStylePizzaStore.cpp
+  stores/ChicagoStylePizzaStore.hpp
 )
 
-target_compile_definitions(PizzaStore PRIVATE PIZZASTORE_LIBRARY)
+add_executable(main main.cpp)
+target_link_libraries(main PizzaStore)
