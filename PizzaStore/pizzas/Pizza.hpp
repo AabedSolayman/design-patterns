@@ -5,29 +5,58 @@
 #include <vector>
 #include <iostream>
 
+#include "IngredientsFactory/factories/IngredientsFactory.hpp"
+#include "IngredientsFactory/ingredients/Dough.hpp"
+#include "IngredientsFactory/ingredients/Pepperoni.hpp"
+#include "IngredientsFactory/ingredients/Clams.hpp"
+
 class Pizza
 {
 public:
-    Pizza();
 
-    void prepare();
-    void bake();
-    void cut();
-    void box();
+    void bake() { std::cout << className << "::Baking " << std::endl; };
+    void cut()  { std::cout << className << "::Cutting" << std::endl; };
+    void box()  { std::cout << className << "::Boxing " << std::endl; };
+    std::string getName() {return name_;};
 
-    void setName(std::string  name);
-    void setDough(std::string dough);
-    void setSauce(std::string sauce);
-    void addToppings(std::string topping);
+    virtual void prepare() = 0;
+    virtual ~Pizza(){};
 
-    std::string getName();
+protected:
+    Dough*      dough_;
+    Pepperoni * pepperoni_;
+    Clams*      clams_;
+
 
 private:
     std::string className = "Pizza";
     std::string name_ ;
-    std::string dough_;
-    std::string sauce_;
-    std::vector<std::string> toppings_;
 };
 
+
+class CheesePizza : public Pizza
+{
+public:
+    CheesePizza(IngredientsFactory* ingredients_factory);
+
+    virtual void prepare() override;
+
+private:
+    IngredientsFactory* ingredients_factory_;
+    std::string className = "CheesePizza";
+    std::string name_ ;
+};
+
+class ClamPizza : public Pizza
+{
+public:
+    ClamPizza(IngredientsFactory* ingredients_factory);
+
+    virtual void prepare() override;
+
+private:
+    IngredientsFactory* ingredients_factory_;
+    std::string className = "ClamPizza";
+    std::string name_ ;
+};
 #endif // PIZZA_HPP

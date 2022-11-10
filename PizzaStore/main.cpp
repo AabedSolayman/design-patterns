@@ -25,4 +25,5 @@ int main()
 
     delete nyStore;
     delete chicagoStore;
+    delete pizza;
 }

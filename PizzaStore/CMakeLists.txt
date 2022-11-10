@@ -6,6 +6,9 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+add_subdirectory(IngredientsFactory)
+include_directories(IngredientsFactory)
+
 add_library(PizzaStore SHARED
   pizzas/Pizza.cpp
   pizzas/Pizza.hpp
@@ -22,4 +25,4 @@ add_library(PizzaStore SHARED
 )
 
 add_executable(main main.cpp)
-target_link_libraries(main PizzaStore)
+target_link_libraries(main PizzaStore IngredientsFactory)

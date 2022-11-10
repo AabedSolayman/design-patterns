@@ -8,7 +8,7 @@
 class  PizzaStore
 {
 public:
-    PizzaStore();
+//    PizzaStore();
     virtual ~PizzaStore(){};
     Pizza * orderPizza(std::string &type);
 protected:

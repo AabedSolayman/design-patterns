@@ -2,9 +2,10 @@
 
 ChicagoStyleCheesePizza::ChicagoStyleCheesePizza()
 {
-    this->setName("Chicago Style Deep Dish Cheese Pizza");
-    this->setDough("Extra Thick Crust Dough");
-    this->setSauce("Plum Tomato Sauce");
-    this->addToppings("Shredded Mozzarela Cheese");
-}
+//    this->setName("Chicago Style Deep Dish Cheese Pizza");
+//    this->setDough("Extra Thick Crust Dough");
+//    this->setPepperoni("Plum Tomato Sauce");
+//    this->addToppings("Shredded Mozzarela Cheese");
+//}
 
+}
